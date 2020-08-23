@@ -24,7 +24,6 @@ height: height + (vertical padding x 2) + (vertical margin x 2) + (border x 2);
 
 Dimensions: 190px x 180px
 
-
 ### JS
 ```
 const sales = [
@@ -66,4 +65,5 @@ Open `index.html` in any browser.
 - Used [WebAIM](https://webaim.org/resources/contrastchecker/) to ensure colours pass WCAG standards.
 - Ensured browser support by including webkit extensions.
 - Font sizes are `16px` and up; per recommendations via WCAG.
-- Users are able to tab between search input and sidebar links. Obviously place holder text is used for the links, but in a production ready app these would be descriptive titles.
+- Users are able to tab between search input and sidebar links. Obviously placeholder text is used for the links, but in a production ready app these would be descriptive titles.
+- The h1 element was originally uppercased via CSS; however this should be avoided for ease of reading for differently abled people so I've taken this out again.

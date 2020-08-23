@@ -170,7 +170,6 @@ main aside {
     color: #FF474E;
     display: inline;
     font-weight: 600;
-    text-transform: uppercase;
   }
 
   .toggle-sidebar-label {

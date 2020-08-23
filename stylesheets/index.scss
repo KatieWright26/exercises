@@ -164,8 +164,6 @@ main {
         color: $highlight;
         display: inline;
         font-weight: 600;
-        // Some screen readers can shout at users when dealing with capitalized text.
-        text-transform: uppercase;
     }
     .toggle-sidebar-label {
         display: none; 
