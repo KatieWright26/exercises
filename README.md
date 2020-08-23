@@ -3,12 +3,12 @@
 ### Box Model
 
 The box model refers to the box that each piece of content is wrapped in. This box contains several properties:
-1. Content: where text, a link or image lives.
-2. Padding: space between the content at the edge of the box. Background colors apply to the padding space.
+1. Content: This is the core of the box model where text, a link or image lives.
+2. Padding: Space between the content and the edge of the box. Background colors also apply to the padding space.
 3. Border: This wraps around the outside of the box and around the edge of any padding or content.
-4. Margin: sits around all three inner layers and provides space between its box, and other box models.
+4. Margin: This sits around all three inner layers and provides space between this box, and other neighbouring box models.
 
-Any width or height that is applied via CSS, is only applied the the content section of the model. Hovering over this element in the browser dev tools will display the _total_ width of the element, e.g. 
+Any width or height that is applied via CSS, is only applied to the content section of the model. Hovering over this element in the browser dev tools will display the _total_ width of the element, e.g. 
 
 ```
 .myContent {
@@ -19,6 +19,9 @@ Any width or height that is applied via CSS, is only applied the the content sec
     border: 5px solid purple;
 }
 ```
+width: width + (horizontal padding x 2) + (horizontal margin x 2) + (border x 2);
+height: height + (vertical padding x 2) + (vertical margin x 2) + (border x 2);
+
 Dimensions: 190px x 180px
 
 
@@ -33,7 +36,7 @@ const sales = [
 ```
 1. Sum of prices:
 ```
-sales.reduce((total, sale) =>  sale.price += total, 0);
+sales.reduce((total, sale) =>  total + sale.price, 0);
 ```
 2. Items sold in 2017: 
 ```
@@ -48,13 +51,12 @@ sales.map(sale => sale.itemSold).sort();
 ```
 4. Find sale with ID: 
 ```
-const findSaleById = (id) => sales.filter(sale => sale.id === id);
+const findSaleById = (id) => sales.find(sale => sale.id === id);
 ```
 
 Layout exercise notes:
 
 - All written in pure CSS
 - Used media queries to impliment mobile first styles.
-- Used a checkbox with pure CSS to impliment a sliding sidebar for narrow screen views.
+- Used a checkbox with pure CSS to impliment a sliding sidebar for narrow screen views. This is hidden for desktop views and the sidebar remains on screen. As this is a checkbox implimentation, the state the menu (open or closed) persists between screen resizes.
 - Used [WebAIM](https://webaim.org/resources/contrastchecker/) to ensure colours pass WCAG standards.
-- 
