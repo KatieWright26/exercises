@@ -67,3 +67,7 @@ Open `index.html` in any browser.
 - Font sizes are `16px` and up; per recommendations via WCAG.
 - Users are able to tab between search input and sidebar links. Obviously placeholder text is used for the links, but in a production ready app these would be descriptive titles.
 - The h1 element was originally uppercased via CSS; however this should be avoided for ease of reading for differently abled people so I've taken this out again.
+
+![Mobile screenshot](./public/mobile.png)
+![Mobile screenshot with menu](./public/mobile-menu.png)
+![Desktop screenshot](./public/desktop.png)
