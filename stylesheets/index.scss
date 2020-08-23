@@ -1,99 +1,170 @@
 $headerHeight: 50px;
 $mobileBreakpoint: 640px;
+// contrast between chosen colors between WCAG AA - AAA rating.
+$black: #001021;
+$highlight: #FF474E;
+$white: #F5F5F5;
+$sidebar-blue: #087A87;
 
-@media screen and (max-width: $mobileBreakpoint) {
-    header input {
-        border: none;
-        background: rgba(255,255,255,0.25);
-        padding: 0.5em;
-        border-bottom: 1px solid white;
-        margin: 10px 0;
-    }
-    main {
-        a {
-            width: 2em;
-            display: inline-block;
-            height: 2em;   
-            position: absolute;
-            top: 5px;
-            left: 85%;
-            z-index: 999;
-            div {
-                width: 35px;
-                height: 5px;
-                background-color: red;
-                border-radius: 5px;
-                margin: 6px 0;
-                
-            }
-            &:focus {
-                + aside {
-                    left: 0;
-                }
-            }
-        }
-        background: blue;
-        aside {
-            background: paleturquoise;
-            position: absolute;
-            left: -100%;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            transition: left 2s;
-            width: 100%;
-        }
-    }
-}
-
-@media screen and (min-width: $mobileBreakpoint + 1) {
-    main {  
-        a {
-            display:none;
-            div {
-                display: none;
-            }
-        }
-        article {
-            display: inline-block;
-            width: 80%;
-            height: 100%;
-        }
-        aside {
-            width: 19%;
-            background: palevioletred;
-            height: 100%;
-            display: inline-block;
-        }
-    }
+@mixin hamburger {
+    content: "";
+    width: 30px;
+    height: 5px;
+    background-color: #FF5A5F;
+    display: block;
+    z-index: 200;
+    position: relative;
 }
 
 body {
     width: 100%;
     height: 100%;
+    // Minimum font size for to prevent auto-zoom on mobile devices. 
     font-size: 16px;
+    // sans-serif fonts are widely considered most accessible to differently abled people.
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     min-width: 320px;
+    color: $black;
+    background: $white;
 }
 
-main {  
-    width: 100%;
-    background: greenyellow;
-    height: 100%;
-    display: block;
+a {
+    color: $white;
+    &:hover {
+        color: $highlight;
+        font-weight: 500;
+    }
 }
 
-header {
-    width: 100%;
-    height: $headerHeight;
-    display: block;
-    background: palegoldenrod;
-    z-index: 100;
-    position: fixed;
+li {
+    margin: 0.5em 0;
 }
+
 html {
     width: 100%;
     height: 100%;
 }
+
+header {
+    justify-content: space-between;
+    align-items: center;
+    height: $headerHeight;
+    z-index: 100;
+    position: relative;
+    display: flex;
+    background: $black;
+    padding: 0 1em;
+}
+h1 {
+    display: none;
+}
+.search__container {
+    width: 85%;
+    position: relative;
+    i {
+        color: $highlight;
+        position: absolute;
+        top: 0.35em;
+        right: 1em;
+    }
+    input {
+        border: none;
+        background: $white;
+        padding: 0.5em;
+        border-radius: 15px;  
+        width: calc(100% - 15px);
+        color: $highlight;
+        font-weight: bold;
+    }
+}
+main {
+    width: 100%;
+    height: calc(100% - 50px);
+    display: flex;
+    position: relative;
+        .toggle-sidebar {
+            display: none;
+            &:checked {
+                ~ aside {
+                    left: 0;
+                }
+                ~ .toggle-sidebar-label:after {
+                    transform: rotate(45deg);
+                    top: -5px;
+                }
+                ~ .toggle-sidebar-label:before {
+                    transform: rotate(-45deg);
+                    top: 10px;
+                }
+            }
+        }
+        .toggle-sidebar-label {
+            position: absolute;
+            top: -35px;
+            right: 1em;
+            z-index: 200;
+            cursor: pointer;
+            &:before {
+                @include hamburger;
+                margin-bottom: 10px;
+                transform: rotate(0deg);
+                transition: all 0.5s;
+            }
+            &:after{
+                @include hamburger;
+                transform: rotate(0deg);
+                transition: all 0.5s;
+            }
+        }
+    article {            
+        padding: 0 1em;
+        background: $white;
+        height: 100%;
+        width: 100%;
+    }
+    aside {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        transition: left 2s;
+        width: 100%;
+        color: $white;
+        padding: 1em;
+        background: $sidebar-blue;
+    }
+}
+
+@media screen and (min-width: $mobileBreakpoint + 1) {
+    .search__container {
+        width: 30%;
+        max-width: 250px;
+        margin-right: 1em;
+    }
+    h1 {
+        // Some screen readers can shout at users when dealing with capitalized text.
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $highlight;
+        display: inline;
+    }
+    main { 
+        .toggle-sidebar-label {
+            display: none; 
+        }
+        article {
+            flex: 1 1 auto;
+        }
+        aside {
+            left: 0;
+            width: 40%;
+            max-width: 250px;
+            position: relative;
+        }
+    }
+}
+
 
