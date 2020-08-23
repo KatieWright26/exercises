@@ -8,23 +8,47 @@
 
   <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="build/stylesheets/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <header>
-        <input type="text" name="search"/>
-        <i class="fa fa-search"></i> 
+        <h1 aria-label="Header">Header</h1>
+        <div class="search__container">
+            <input type="text" name="search"/>
+            <i class="fa fa-search"></i>
+        </div>
     </header>
     <main>
         <article>
-            Content
+            <section>
+                <h2>Second Header</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos corporis odit, aspernatur repudiandae sed ab iusto atque quod aliquid nostrum enim, alias officiis ad hic consequuntur dolore. Labore, iure esse?</p>
+            </section>
+            <section>
+                <h2>Third Header</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam distinctio vero nemo modi dolorem officiis dicta doloremque veniam, aperiam praesentium ullam corrupti alias similique quas ut dolor unde. Esse, officia.</p>
+            </section>
         </article>
-        <a href="#">
-            <div></div>
-            <div></div>
-            <div></div>
-        </a>
-        <aside>SideBar</aside>
+        <input type="checkbox" class="toggle-sidebar" id="toggle-sidebar"/>
+        <label for="toggle-sidebar" class="toggle-sidebar-label"></label>
+        <aside>
+            <h3>Related links:</h3>
+            <ul>
+                <li>           
+                     <a href="#" aria-label="Read more about Lorem Ipsum">Lorem ipsum dolor sit amet, consectetur.</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Read more about Lorem Ipsum">Lorem ipsum dolor sit amet, consectetur.</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Read more about Lorem Ipsum">Lorem ipsum dolor sit amet, consectetur.</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Read more about Lorem Ipsum">Lorem ipsum dolor sit amet, consectetur.</a>
+                </li>
+            </ul>
+        </aside>
     </main>
 </body>
