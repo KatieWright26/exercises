@@ -54,9 +54,16 @@ sales.map(sale => sale.itemSold).sort();
 const findSaleById = (id) => sales.find(sale => sale.id === id);
 ```
 
-Layout exercise notes:
+### Layout exercise notes:
+
+Open `index.html` in any browser.
+
+----
 
 - All written in pure CSS
-- Used media queries to impliment mobile first styles.
-- Used a checkbox with pure CSS to impliment a sliding sidebar for narrow screen views. This is hidden for desktop views and the sidebar remains on screen. As this is a checkbox implimentation, the state the menu (open or closed) persists between screen resizes.
+- Used media queries to implement mobile first styles. Layout scales across all screen sizes.
+- Used a checkbox with pure CSS to implement a sliding sidebar for narrow screen views. This is hidden for desktop views and the sidebar remains on screen. As this is a checkbox implementation, the state the menu (open or closed) persists between screen resizes.
 - Used [WebAIM](https://webaim.org/resources/contrastchecker/) to ensure colours pass WCAG standards.
+- Ensured browser support by including webkit extensions.
+- Font sizes are `16px` and up; per recommendations via WCAG.
+- Users are able to tab between search input and sidebar links. Obviously place holder text is used for the links, but in a production ready app these would be descriptive titles.
